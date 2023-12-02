@@ -135,7 +135,7 @@ const setGame = () => {
     score = snake.length;
     direction = 'ArrowRight';
     boardSquares = Array.from(Array(boardSize), () => new Array(boardSize).fill(squareTypes.emptySquare));
-    console.log(boardSquares);
+    // console.log(boardSquares);
     board.innerHTML = '';
     emptySquares = [];
     createBoard();
@@ -153,3 +153,36 @@ const startGame = () => {
 }
 
 startButton.addEventListener('click', startGame);
+
+// CODIGO PARA FLECHAS MOBIL
+
+// Obtener referencias a los botones de dirección
+const upButton = document.getElementById('upButton');
+const downButton = document.getElementById('downButton');
+const leftButton = document.getElementById('leftButton');
+const rightButton = document.getElementById('rightButton');
+
+// Funciones para el movimiento de la serpiente según la dirección de los botones
+upButton.addEventListener('click', () => {
+  if (direction !== 'ArrowDown') {
+    setDirection('ArrowUp');
+  }
+});
+
+downButton.addEventListener('click', () => {
+  if (direction !== 'ArrowUp') {
+    setDirection('ArrowDown');
+  }
+});
+
+leftButton.addEventListener('click', () => {
+  if (direction !== 'ArrowRight') {
+    setDirection('ArrowLeft');
+  }
+});
+
+rightButton.addEventListener('click', () => {
+  if (direction !== 'ArrowLeft') {
+    setDirection('ArrowRight');
+  }
+});
